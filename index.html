@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Code Quiz </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <style>
+    
+  </style>
 </head>
 <body>
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
-  </head>
 
-  <body>
-    <div class="scores"><a href="score.html">View Highscores</a></div>
+<div id="quiz-container">
+  <h1>Code Quiz</h1>
+  <button id="start-btn">Start Quiz</button>
+  <div id="question-container"></div>
+  <div id="choices-container"></div>
+  <div id="timer">Time: 60</div>
+  <button id="submit-btn" style="display: none;">Submit</button>
+  <div id="result-message"></div>
+  <form id="score-form" style="display: none;">
+    <label for="initials">Enter Initials:</label>
+    <input type="text" id="initials" name="initials" maxlength="3" required>
+    <button type="submit">Save Score</button>
+  </form>
+</div>
 
-    <div class="timer">Time: <span id="time">0</span></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  });
+</script>
 
-    <div class="wrapper">
-      <div id="start-screen" class="start">
-        <h1>Music Quiz Challenge</h1>
-        <p>
-          Let's see what you know! Here are some music-related questions. Answer all of them as quickly as you can and try to get the HIGH SCORE. Incorrect answers will result in a 10 second score/time penalty. Don't worry, you can try as many times as you want!
-        </p>
-        <button id="start">Start Quiz</button>
-      </div>
-
-      <div id="questions" class="hide">
-        <h2 id="question-title"></h2>
-        <div id="choices" class="choices"></div>
-      </div>
-
-      <div id="end-screen" class="hide">
-        <h2>All done!</h2>
-        <p>Your final score is <span id="final-score"></span>.</p>
-        <p>
-          Enter initials: <input type="text" id="initials" max="3" />
-          <button id="submit">Submit</button>
-        </p>
-      </div>
-
-      <div id="feedback" class="feedback hide"></div>
-    </div>
-
-    <script src="./JS/questions.js"></script>
-    <script src="./JS/script.js"></script>
-  </body>
+</body>
 </html>
+
+
