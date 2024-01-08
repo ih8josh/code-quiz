@@ -8,45 +8,50 @@ document.addEventListener("DOMContentLoaded", function () {
   const scoreForm = document.getElementById("score-form");
 
   let timer;
-  let timeLeft = 100; 
+  let timeLeft = 100;
   let currentQuestionIndex = 0;
   let correctAnswers = 0;
 
   const question = [
-        {
-          question: "Who was the lead singer off Grupo Arriesgado?",
-          choices: ["Josue Gonzalez", "Arturo González", "Jose Torres", "Eden Munoz"],
-          correctAnswer: "Arturo González"
-        }
-  ]
-        const question = [
-        {
-          question: "Who wrote the song tiltled `La People`",
-          choices: ["Xavi", "Ivan Conejo", "Tito Double P.", "Peso Pluma"],
-          correctAnswer: "Tito Double P."
-        },
-        ]
-      const question = [
-        {
-          question: "Which artist is known for being threatend by the cartel",
-          choices: ["Chalino Sanchez", "Los Tigres del Norte", "Santa Grifa", "Danny Lux"],
-          correctAnswer: "Chalino Sanchez"
-        }
-      ]
-      const question = [
-        {
-          question: "Which artist made Taylor Swift famous",
-          choices: ["Jay-z", "Kanye West", "Odd Future", "Tyler The Creator"],
-          correctAnswer: "Kanye West"
-        }
-      ]
-      const questions = [
-        {
-          question: "Who made the first rap album",
-          choices: ["MF DOOM", "The Last Poet", "Biggie Smalls", "Kodak Black"],
-          correctAnswer: "The Last Poet"
-        }
-      ]
+    {
+      question: "Who was the lead singer off Grupo Arriesgado?",
+      choices: [
+        "Josue Gonzalez",
+        "Arturo González",
+        "Jose Torres",
+        "Eden Munoz",
+      ],
+      correctAnswer: "Arturo González",
+    },
+
+    {
+      question: "Who wrote the song tiltled `La People`",
+      choices: ["Xavi", "Ivan Conejo", "Tito Double P.", "Peso Pluma"],
+      correctAnswer: "Tito Double P.",
+    },
+
+    {
+      question: "Which artist is known for being threatend by the cartel",
+      choices: [
+        "Chalino Sanchez",
+        "Los Tigres del Norte",
+        "Santa Grifa",
+        "Danny Lux",
+      ],
+      correctAnswer: "Chalino Sanchez",
+    },
+
+    {
+      question: "Which artist made Taylor Swift famous",
+      choices: ["Jay-z", "Kanye West", "Odd Future", "Tyler The Creator"],
+      correctAnswer: "Kanye West",
+    },
+    {
+      question: "Who made the first rap album",
+      choices: ["MF DOOM", "The Last Poet", "Biggie Smalls", "Kodak Black"],
+      correctAnswer: "The Last Poet",
+    },
+  ];
 
   startBtn.addEventListener("click", startQuiz);
   scoreForm.addEventListener("submit", saveScore);
@@ -58,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = question[currentQuestionIndex];
     questionContainer.textContent = currentQuestion.question;
 
     choicesContainer.innerHTML = "";
@@ -71,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkAnswer(userChoice) {
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = question[currentQuestionIndex];
     if (userChoice === currentQuestion.correctAnswer) {
       correctAnswers++;
     } else {
@@ -80,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     currentQuestionIndex++;
 
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < question.length) {
       displayQuestion();
     } else {
       endQuiz();
@@ -98,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function endQuiz() {
     clearInterval(timer);
-    resultMessage.textContent = `You got ${correctAnswers} out of ${questions.length} questions correct!`;
+    resultMessage.textContent = `You got ${correctAnswers} out of ${question.length} questions correct!`;
     submitBtn.style.display = "block";
     scoreForm.style.display = "block";
   }
@@ -116,9 +121,10 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.style.display = "none";
     resultMessage.textContent = "";
     scoreForm.style.display = "none";
-
+questionContainer.innerHTML="";
     timeLeft = 60;
     currentQuestionIndex = 0;
     correctAnswers = 0;
+    choicesContainer.innerHTML="";
   }
 });
